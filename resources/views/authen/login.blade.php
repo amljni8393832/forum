@@ -139,28 +139,25 @@
         <h1>Connexion</h1>
         <p class="subtitle">Bienvenue ! Connectez-vous à votre compte.</p>
 
-        <form action="#" method="POST">
+        <form action="{{ route('login.post') }}" method="POST">
             @csrf
-
             <div class="form-group">
                 <label for="email">Adresse email</label>
-                <input type="email" id="email" name="email" placeholder="exemple@mail.com" required>
+                <input type="email" id="email" name="email" value="{{ old('email') }}" required>
+                @error('email')
+                    <p style="color:#dc2626;font-size:13px;margin-top:4px;">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="form-group">
                 <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password" placeholder="••••••••" required>
-            </div>
-
-            <div class="options">
-                <label>
-                    <input type="checkbox" name="remember"> Se souvenir de moi
-                </label>
-                <a href="#">Mot de passe oublié ?</a>
+                <input type="password" id="password" name="password" required>
             </div>
 
             <button type="submit">Se connecter</button>
         </form>
+
+
 
         <div class="footer-link">
             Pas encore de compte ? <a href="{{ route('register') }}">S'inscrire</a>

@@ -125,14 +125,14 @@
         <h1>Créer un compte</h1>
         <p class="subtitle">Rejoignez-nous dès aujourd'hui, c'est gratuit !</p>
 
-        <form action="#" method="POST">
+        <form action="{{ route('register.post') }}" method="POST">
             @csrf
 
             <div class="row">
 
                 <div class="form-group">
-                    <label for="nom">Nom Complet</label>
-                    <input type="text" id="nom" name="nom" placeholder="Dupont" required>
+                    <label for="name">Nom Complet</label>
+                    <input type="text" id="name" name="name" placeholder="Dupont" required>
                 </div>
             </div>
 
@@ -152,7 +152,7 @@
                     required>
             </div>
 
-            <button type="submit">register</button>
+            <button type="submit">S'inscrire</button>
         </form>
 
         <div class="footer-link">
