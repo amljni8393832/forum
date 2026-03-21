@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Database\Factories\UserFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    public function annonces()
+    {
+        return $this->hasMany(Annonce::class);
+    }
+}
