@@ -51,7 +51,7 @@ class AuthenController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('annonces.index');
+        return redirect()->route('authen.login');
     }
 
     // Handle logout
@@ -63,4 +63,3 @@ class AuthenController extends Controller
         return redirect()->route('login');
     }
 }
-

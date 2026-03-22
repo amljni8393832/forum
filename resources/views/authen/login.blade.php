@@ -143,7 +143,7 @@
             @csrf
             <div class="form-group">
                 <label for="email">Adresse email</label>
-                <input type="email" id="email" name="email" value="{{ old('email') }}" required>
+                <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Adresse email" required>
                 @error('email')
                     <p style="color:#dc2626;font-size:13px;margin-top:4px;">{{ $message }}</p>
                 @enderror
@@ -151,7 +151,7 @@
 
             <div class="form-group">
                 <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" placeholder="Mot de passe" required>
             </div>
 
             <button type="submit">Se connecter</button>

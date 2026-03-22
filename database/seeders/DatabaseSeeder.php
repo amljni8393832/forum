@@ -10,9 +10,12 @@ class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
-    public function run()
+    public function run(): void
     {
         $this->call(UserSeeder::class);
+        $this->call(ProjectSeeder::class);
     }
+
+
 
 }
