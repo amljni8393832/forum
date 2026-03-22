@@ -77,6 +77,7 @@
             font-size: 16px;
             cursor: pointer;
             transition: background 0.3s;
+            
         }
 
         button:hover {
@@ -96,6 +97,7 @@
     <div class="container">
         <div class="form-card">
             <h1>Créer une post</h1>
+            
             <form action="{{ route('annonces.store') }}" method="POST">
                 @csrf
                 <label for="title">Sujet du projet</label>
@@ -112,6 +114,7 @@
 
                 <button type="submit">Publier</button>
             </form>
+            
         </div>
     </div>
 </body>

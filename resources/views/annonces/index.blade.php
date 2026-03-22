@@ -42,6 +42,13 @@
     <div class="container">
         <h1>Les Annonces </h1>
 
+             @if(session('success'))
+            <div style="background:#d4edda; color:#155724; padding:10px; border-radius:5px; margin-bottom:20px;">
+                {{ session('success') }}
+            </div>
+        @endif
+
+
         @foreach($projects as $project)
             <div class="project">
                 <h2>{{ $project->title }}</h2>
@@ -53,4 +60,3 @@
     </div>
 </body>
 </html>
-

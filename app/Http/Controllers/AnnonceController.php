@@ -23,17 +23,23 @@ class AnnonceController extends Controller
 
     public function store(Request $request)
     {
-        Project::create([
-
-            'title' => $request->title,
-            'description' => $request->description,
-            'start' => now(),
-            'end' => now(),
-            'user_id' => auth()->id()
-
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'start' => 'required|date',
+            'end' => 'required|date|after_or_equal:start',
         ]);
 
-        return redirect()->route('annonces.index')->with('success', 'project créée avec succès !');
+        Project::create([
+            'title' => $validated['title'],
+            'description' => $validated['description'],
+            'start' => $validated['start'],
+            'end' => $validated['end'],
+            'user_id' => Auth::id(),
+        ]);
+
+        return redirect()->route('annonces.index')->with('success', 'Annonce publiée avec succès !');
+
     }
 
     public function show(Annonce $annonce)
